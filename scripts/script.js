@@ -1,3 +1,4 @@
+// Первые три строки - начальные параметры игры.
 let min_take = 1;
 let max_take = 3;
 let number_of_candies = 10;
