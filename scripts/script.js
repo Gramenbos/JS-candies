@@ -10,7 +10,7 @@ function drawCandies(count) {
 
 function takeInput(min_num, max_num, num_of_cand) {
     while (true) {
-        let player_answer = prompt('Сколько конфет возьмешь? ');
+        let player_answer = prompt(`Осталось конфет: ${num_of_cand}. Сколько конфет возьмешь? `);
         player_answer = +player_answer;
         if (isNaN(player_answer)) {
             alert('Некорректный ввод. Не похоже, что Вы ввели число.');
@@ -46,8 +46,7 @@ function computerTurn(min_num, max_num, num_of_cand) {
 }
 
 function playerVsComputer(min_take, max_take, number_of_candies) {
-    drawCandies(number_of_candies);
-    let move = confirm('Хотите ходить первым?');
+    let move = confirm(`Всего конфет: ${number_of_candies}. Хотите ходить первым?`);
     while (number_of_candies > 0) {
         if (move) {
             let player_take = takeInput(min_take, max_take, number_of_candies);
@@ -57,7 +56,6 @@ function playerVsComputer(min_take, max_take, number_of_candies) {
                 playAgain();
                 break;
             }
-            drawCandies(number_of_candies);
             move = false;
             continue;
         } else {
@@ -68,7 +66,6 @@ function playerVsComputer(min_take, max_take, number_of_candies) {
                 playAgain();
                 break;
             }
-            drawCandies(number_of_candies);
             move = true;
         }
     }
