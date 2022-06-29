@@ -5,11 +5,7 @@ let number_of_candies = 10;
 
 playerVsComputer(min_take, max_take, number_of_candies);
 
-function drawCandies(count) {
-    alert(`Осталось конфет: ${count}`);
-}
-
-function takeInput(min_num, max_num, num_of_cand) {
+function takeInput(min_num, max_num, num_of_cand) { //Получение данных от игрока, сколько конфет берет
     while (true) {
         let player_answer = prompt(`Осталось конфет: ${num_of_cand}. Сколько конфет возьмешь? `);
         player_answer = +player_answer;
@@ -31,13 +27,13 @@ function takeInput(min_num, max_num, num_of_cand) {
     }
 }
 
-function getRandomInt(min, max) {
+function getRandomInt(min, max) { //Получение случайного целого числа.
     min = Math.ceil(min);
     max = Math.floor(max + 1);
     return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
 }
 
-function computerTurn(min_num, max_num, num_of_cand) {
+function computerTurn(min_num, max_num, num_of_cand) { //Логика хода компьютера.
     let best_turn = num_of_cand % (max_num + 1);
     if (best_turn == 0) {
         best_turn = getRandomInt(min_num, max_num);
@@ -46,7 +42,7 @@ function computerTurn(min_num, max_num, num_of_cand) {
     return best_turn;
 }
 
-function playerVsComputer(min_take, max_take, number_of_candies) {
+function playerVsComputer(min_take, max_take, number_of_candies) { //Логика игры.
     let move = confirm(`Всего конфет: ${number_of_candies}. Хотите ходить первым?`);
     while (number_of_candies > 0) {
         if (move) {
@@ -72,7 +68,7 @@ function playerVsComputer(min_take, max_take, number_of_candies) {
     }
 }
 
-function playAgain() {
+function playAgain() { //Запрос после окончания игры.
     let agree = confirm('Хотите играть ещё?');
     if (agree) {
         number_of_candies = 10;
